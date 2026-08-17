@@ -68,7 +68,7 @@ export default function App() {
   });
 
   const [isBloomed, setIsBloomed] = useState(false);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [isGiftMode, setIsGiftMode] = useState(() => {
     const urlParams = new URLSearchParams(window.location.search);

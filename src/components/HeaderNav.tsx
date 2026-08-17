@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, VolumeX, Sparkles, Sliders, Eye } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 interface HeaderNavProps {
   isMusicPlaying: boolean;
@@ -53,41 +53,8 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           )}
         </button>
 
-        {/* Gift mode preview toggle */}
-        <button
-          id="gift-mode-toggle-btn"
-          onClick={onToggleGiftMode}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-            isGiftMode
-              ? 'bg-stone-900 text-stone-100 hover:bg-stone-800 shadow-sm'
-              : 'bg-amber-100/80 text-amber-900 hover:bg-amber-200/80 border border-amber-300/60'
-          }`}
-          title={isGiftMode ? 'Revenir au mode avec réglages' : 'Voir comme elle le verra (sans boutons d\'édition)'}
-        >
-          {isGiftMode ? (
-            <>
-              <Sliders className="w-3.5 h-3.5 text-amber-300" />
-              <span>Afficher éditeur</span>
-            </>
-          ) : (
-            <>
-              <Eye className="w-3.5 h-3.5 text-amber-700" />
-              <span className="hidden sm:inline">Aperçu Cadeau</span>
-            </>
-          )}
-        </button>
-
-        {/* Customizer Drawer Trigger (Hidden in pure gift mode) */}
-        {!isGiftMode && (
-          <button
-            id="customizer-open-btn"
-            onClick={onToggleCustomizer}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Personnaliser</span>
-          </button>
-        )}
+        {/* Gift mode preview toggle - masqué */}
+        {/* Customizer Drawer Trigger - masqué */}
       </div>
     </header>
   );

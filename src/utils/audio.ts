@@ -2,7 +2,7 @@
 
 class AudioEngine {
   private ctx: AudioContext | null = null;
-  private isMuted: boolean = true;
+  private isMuted: boolean = false;
   private melodyInterval: number | null = null;
   private melodyStep: number = 0;
   private isMelodyPlaying: boolean = false;
