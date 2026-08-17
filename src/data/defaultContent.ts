@@ -41,7 +41,7 @@ export const initialGiftConfig: GiftConfig = {
   memories: [
     {
       id: 'm1',
-      title: 'Notre tout premier appel',
+      title: 'Ambianceure',
       subtitle: 'La voix un peu hésitante au début...',
       mediaType: 'photo',
       imageUrl: '',
@@ -52,7 +52,7 @@ export const initialGiftConfig: GiftConfig = {
     },
     {
       id: 'm2',
-      title: 'Ce fou rire partagé',
+      title: '2m10',
       subtitle: 'Impossible de reprendre notre souffle',
       mediaType: 'photo',
       imageUrl: '',
@@ -63,7 +63,7 @@ export const initialGiftConfig: GiftConfig = {
     },
     {
       id: 'm3',
-      title: 'La chanson que tu m\'as fait écouter',
+      title: 'BIBINA Be',
       subtitle: 'Depuis, elle tourne en boucle',
       mediaType: 'photo',
       imageUrl: '',
@@ -74,7 +74,7 @@ export const initialGiftConfig: GiftConfig = {
     },
     {
       id: 'm4',
-      title: 'Notre prochain rendez-vous',
+      title: 'Fiongola mutema',
       subtitle: 'Effacer les kilomètres pour de vrai',
       mediaType: 'video',
       videoUrl: '',
