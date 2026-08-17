@@ -1,0 +1,6 @@
+{
+  "name": "Pour Toi 🌸 — Cadeau d'Anniversaire Délicat",
+  "description": "Un site poétique et interactif sur le thème de l'éclosion florale, spécialement conçu pour célébrer l'anniversaire d'une personne douce et lumineuse à distance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
