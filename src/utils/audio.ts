@@ -6,6 +6,15 @@ class AudioEngine {
   private melodyInterval: number | null = null;
   private melodyStep: number = 0;
   private isMelodyPlaying: boolean = false;
+  private bgAudio: HTMLAudioElement | null = null;
+
+  private initBgAudio() {
+    if (!this.bgAudio) {
+      this.bgAudio = new Audio('./happy.mp3');
+      this.bgAudio.loop = true;
+      this.bgAudio.volume = 0.5;
+    }
+  }
 
   private initContext() {
     if (!this.ctx) {
@@ -133,40 +142,16 @@ class AudioEngine {
     }
   }
 
-  // Continuous music box gentle looping melody
+  // Continuous background music from file
   public startMelody() {
     if (this.isMelodyPlaying) return;
     this.isMelodyPlaying = true;
-    this.melodyStep = 0;
-
-    // Sweet pentatonic music box pattern (E4, G4, A4, B4, D5, E5, G5)
-    const melody = [
-      329.63, 392.00, 493.88, 587.33,
-      659.25, 587.33, 493.88, 392.00,
-      329.63, 440.00, 523.25, 659.25,
-      783.99, 659.25, 523.25, 440.00,
-      392.00, 493.88, 587.33, 783.99,
-      880.00, 783.99, 587.33, 493.88,
-      329.63, 392.00, 440.00, 523.25,
-      587.33, 493.88, 392.00, 329.63
-    ];
-
-    const playNext = () => {
-      if (!this.isMelodyPlaying || this.isMuted) return;
-      const freq = melody[this.melodyStep % melody.length];
-      this.playNote(freq, 1.4, 0.04, 'sine');
-
-      // Add harmonic bass note every 4 steps
-      if (this.melodyStep % 4 === 0) {
-        const bassFreq = freq / 2;
-        this.playNote(bassFreq, 2.0, 0.03, 'sine');
-      }
-
-      this.melodyStep++;
-      this.melodyInterval = window.setTimeout(playNext, 550);
-    };
-
-    playNext();
+    this.initBgAudio();
+    if (this.bgAudio) {
+      this.bgAudio.play().catch(() => {
+        // autoplay bloqué par le navigateur, silencieux
+      });
+    }
   }
 
   public stopMelody() {
@@ -174,6 +159,9 @@ class AudioEngine {
     if (this.melodyInterval) {
       clearTimeout(this.melodyInterval);
       this.melodyInterval = null;
+    }
+    if (this.bgAudio) {
+      this.bgAudio.pause();
     }
   }
 }
