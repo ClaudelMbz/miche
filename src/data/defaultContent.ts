@@ -77,7 +77,7 @@ export const initialGiftConfig: GiftConfig = {
     },
     {
       id: 'm4',
-      title: 'Fiongola mutema',
+      title: 'Fongola motema',
       subtitle: 'Effacer les kilomètres pour de vrai',
       mediaType: 'video',
       videoUrl: './videos/video4.mp4',

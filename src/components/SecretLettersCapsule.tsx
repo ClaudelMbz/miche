@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { SecretNote } from '../types';
 import { Mail, MailOpen, X, Sparkles, Heart, Coffee, Compass, Star, Smile, Gift, LucideIcon } from 'lucide-react';
 import { audio } from '../utils/audio';
@@ -87,8 +88,11 @@ export const SecretLettersCapsule: React.FC<SecretLettersCapsuleProps> = ({
       </div>
 
       {/* Modal Letter Envelope View */}
-      {selectedNote && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+      {selectedNote && createPortal(
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={handleClose}
+        >
           <div
             className="relative w-full max-w-lg bg-[#FFFDF9] rounded-3xl p-6 sm:p-8 paper-shadow border border-amber-200/80 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
@@ -137,7 +141,8 @@ export const SecretLettersCapsule: React.FC<SecretLettersCapsuleProps> = ({
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
