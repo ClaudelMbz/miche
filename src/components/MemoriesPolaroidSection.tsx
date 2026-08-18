@@ -88,9 +88,9 @@ export const MemoriesPolaroidSection: React.FC<MemoriesPolaroidSectionProps> = (
                 {/* Tape decoration on top */}
                 <div className="w-24 h-6 mx-auto -mb-3 bg-amber-100/80 border border-amber-200/60 rotate-[-1deg] shadow-xs relative z-20 rounded-xs backdrop-blur-xs opacity-80" />
 
-                {/* Flippable Card Container */}
+                {/* Flippable Card Container - Modifié ici de aspect-[4/5] à aspect-[3/4] pour l'allonger */}
                 <div
-                  className="relative w-full aspect-[4/5] bg-white rounded-lg p-3.5 pb-6 polaroid-shadow border border-stone-200/70 transition-transform duration-700"
+                  className="relative w-full aspect-[3/4] bg-white rounded-lg p-3.5 pb-8 polaroid-shadow border border-stone-200/70 transition-transform duration-700"
                   style={{
                     transformStyle: 'preserve-3d',
                     transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
@@ -98,14 +98,14 @@ export const MemoriesPolaroidSection: React.FC<MemoriesPolaroidSectionProps> = (
                 >
                   {/* FRONT FACE */}
                   <div
-                    className="absolute inset-0 p-3.5 pb-6 flex flex-col bg-white rounded-lg"
+                    className="absolute inset-0 p-3.5 pb-8 flex flex-col bg-white rounded-lg"
                     style={{
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
                     }}
                   >
-                    {/* Media Area (Photo or Video) */}
-                    <div className="relative w-full aspect-square rounded-sm overflow-hidden bg-stone-900 border border-stone-200/50 flex items-center justify-center">
+                    {/* Media Area (Photo or Video) - Modifié de aspect-square à aspect-[4/5] pour qu'elle soit plus longue */}
+                    <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden bg-stone-900 border border-stone-200/50 flex items-center justify-center">
                       {isVideo && memo.videoUrl ? (
                         <div className="relative w-full h-full group/video bg-black flex items-center justify-center">
                           <video
@@ -181,7 +181,7 @@ export const MemoriesPolaroidSection: React.FC<MemoriesPolaroidSectionProps> = (
                     </div>
 
                     {/* Polaroid Bottom Caption */}
-                    <div className="mt-3 text-center">
+                    <div className="mt-auto pt-2 text-center">
                       <p className="font-hand text-xl font-bold text-stone-800 leading-tight">
                         {memo.title}
                       </p>
